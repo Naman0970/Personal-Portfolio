@@ -1,0 +1,61 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<div class="center">
+{% load static %}
+<link rel="icon" type="image/jpeg href="{% static "portfolio/naman.jpg"%}">
+<title>Naman Patni</title>
+
+
+
+
+<br>
+<br>
+<div class="img">
+<img width="400px" height="400px" src="{% static 'portfolio/Naman.jpg' %} ">
+    <div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center"><br>
+    <h1 id="hometext" class="font-weight-bold">Naman Patni is a student of engineering and is currently living in Jaipur,Rajasthan 😊</h1>
+  </div>
+</div>
+    <br>
+</div>
+<h2 class="mt-5">Portfolio</h2>
+<hr>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if project.url %}
+    <a href="{{ project.url }}">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
+        <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+
+
+
+</div>
+<style>
+    .center{
+        text-align: center;
+    }
+
+    .button
+    {
+       text-align:-moz-center;
+    }
+
+</style>
+{% endblock %}

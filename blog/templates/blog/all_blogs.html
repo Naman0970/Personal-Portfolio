@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<div class="center">
+<h1 align="center">Naman's BLOGS</h1>
+{%  for blog in blogs %}
+    <a href="{%   url 'blog:detail' blog.id %}" ><h2>{{ blog.title }}</h2></a>
+    <h4>{{ blog.date }}</h4>
+   <p> {{ blog.desc|truncatechars:50}} </p><br>
+ <br>
+{% endfor %}
+
+
+</div>
+<style>
+    .center{
+        text-align: -moz-left;
+    }
+</style>
